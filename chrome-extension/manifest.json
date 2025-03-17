@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "GPT 신조어 번역기",
+    "version": "1.0",
+    "description": "사용자가 신조어를 입력하여 번역하는 크롬 확장 프로그램",
+    "permissions": ["storage", "activeTab"],
+    "host_permissions": ["*://*/*"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/16p.png",
+        "48": "icons/48p.png",
+        "128": "icons/128p.png"
+      }
+    }
+  }

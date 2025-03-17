@@ -3,13 +3,14 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models import Slang
 from app.schemas import SlangUpdate
+from app.utils import get_korean_initial
 
 router = APIRouter()
 
 @router.get("/search")
 def search_word(word: str, db: Session = Depends(get_db)):
     slang = db.query(Slang).filter(Slang.word.contains(word)).all()
-    return [{"word": s.word, "translation": s.translation, "initial": s.initial} for s in slang]
+    return [{"word": s.word, "translation": s.translation, "initial": get_korean_initial(s.word)} for s in slang]
 
 @router.post("/update")
 def update_word(request: SlangUpdate, db: Session = Depends(get_db)):

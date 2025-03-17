@@ -14,7 +14,10 @@ def translate_word(request: SlangRequest, db: Session = Depends(get_db)):
     if slang:
         return {"word": slang.word, "translation": slang.translation}
     
+    # OpenAI API 호출
     translated_text = translate_with_openai(request.word)
+
+    # 새로운 번역을 DB에 저장
     new_slang = Slang(word=request.word, translation=translated_text, initial=request.word[0])
     db.add(new_slang)
     db.commit()

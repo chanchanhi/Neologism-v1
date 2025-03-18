@@ -8,10 +8,12 @@
 </head>
 <body>
     <div class="container">
-        <h2>신조어 사전</h2>
-        <input type="text" id="searchInput" placeholder="신조어 검색...">
-        <button id="searchBtn">검색</button>
-        
+        <header>
+            <h2>신조어 사전</h2>
+            <input type="text" id="searchInput" placeholder="신조어 검색...">
+            <button id="searchBtn">검색</button>
+        </header>
+
         <table>
             <thead>
                 <tr>
@@ -22,13 +24,22 @@
                 </tr>
             </thead>
             <tbody id="dictionaryTable">
-                <!-- 검색된 신조어 리스트가 여기에 표시됨 -->
+                <!-- 신조어 리스트가 여기에 표시됨 -->
             </tbody>
         </table>
-        
-        <button id="backBtn">돌아가기</button>
+
+        <div class="pagination">
+            <button id="prevPage">이전</button>
+            <span id="pageInfo">1 / 1</span>
+            <button id="nextPage">다음</button>
+        </div>
+
+        <footer>
+            <button id="backBtn">돌아가기</button>
+        </footer>
     </div>
-    
+
     <script src="dictionary.js"></script>
 </body>
 </html>
+

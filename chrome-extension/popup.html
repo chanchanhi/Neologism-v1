@@ -8,18 +8,26 @@
 </head>
 <body>
     <div class="container">
-        <h2>신조어 번역기</h2>
-        <input type="text" id="slangInput" placeholder="신조어를 입력하세요...">
-        <button id="translateBtn">번역하기</button>
+        <header>
+            <h2>신조어 번역기</h2>
+            <button class="settings-btn">⚙️</button>
+        </header>
 
-        <div id="resultContainer">
-            <h3>번역 결과:</h3>
-            <p id="translatedText">여기에 번역 결과가 표시됩니다.</p>
+        <div class="translate-box">
+            <textarea id="slangInput" placeholder="번역할 내용을 입력하세요."></textarea>
+            <button id="translateBtn" class="translate-btn">번역</button>
         </div>
 
-        <button id="dictionaryBtn">신조어 사전</button>
+        <div class="result-box">
+            <p id="translatedText">번역 결과가 여기에 표시됩니다.</p>
+        </div>
+
+        <footer>
+            <button id="dictionaryBtn" class="dictionary-btn">📖 신조어 사전</button>
+        </footer>
     </div>
 
     <script src="popup.js"></script>
 </body>
 </html>
+

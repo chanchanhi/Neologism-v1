@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신조어 추가</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>새로운 신조어 추가</h2>
+        </header>
+
+        <div class="input-box">
+            <input type="text" id="newWord" placeholder="신조어를 입력하세요">
+            <textarea id="newMeaning" placeholder="신조어의 뜻을 입력하세요"></textarea>
+        </div>
+
+        <div class="guide-box">
+            <p><strong>[작성 요령]</strong></p>
+            <p>1. 신조어/줄임말과 그 뜻을 입력해주세요.</p>
+            <p>2. 로봇이 업데이트될 수 있고, https 링크도 가능합니다.</p>
+            <p>3. 등록된 단어는 하루동안 삭제할 수 없습니다.</p>
+            <p>4. 3일 이후에는 삭제가 가능합니다.</p>
+            <p>5. 특정 위치와 관련된 단어는 삭제될 수 있습니다.</p>
+        </div>
+
+        <button id="saveBtn">저장</button>
+        <button id="backBtn">돌아가기</button>
+    </div>
+
+    <script src="add_word.js"></script>
+</body>
+</html>

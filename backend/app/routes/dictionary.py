@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models import Slang
-from app.schemas import SlangUpdate
+from app.schemas import SlangUpdate, SlangCreate
 from app.utils import get_korean_initial
 
 router = APIRouter()

@@ -14,19 +14,21 @@
             <button id="searchBtn">검색</button>
         </header>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>초성</th>
-                    <th>신조어</th>
-                    <th>번역</th>
-                    <th>수정</th>
-                </tr>
-            </thead>
-            <tbody id="dictionaryTable">
-                <!-- 신조어 리스트가 여기에 표시됨 -->
-            </tbody>
-        </table>
+        <div class="table-container"> <!-- 📌 테이블을 감싸는 컨테이너 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>초성</th>
+                        <th>신조어</th>
+                        <th>번역</th>
+                        <th>수정</th>
+                    </tr>
+                </thead>
+                <tbody id="dictionaryTable">
+                    <!-- 신조어 리스트가 여기에 표시됨 -->
+                </tbody>
+            </table>
+        </div>
 
         <div class="pagination">
             <button id="prevPage">이전</button>

@@ -12,11 +12,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     const itemsPerPage = 10;
     let allData = [];
 
+    // ✅ 초성별 정렬 함수
+    function sortByInitial(data) {
+        return data.sort((a, b) => a.initial.localeCompare(b.initial));
+    }
+
     // ✅ 전체 신조어 목록 불러오기
     async function fetchDictionary() {
         try {
             const response = await fetch("http://localhost:8000/dictionary/search?word=");
             allData = await response.json();
+            allData = sortByInitial(allData); // 🔥 초성별 정렬 추가
             currentPage = 1;
             renderTable();
         } catch (error) {

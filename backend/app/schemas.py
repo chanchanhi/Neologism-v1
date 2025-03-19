@@ -10,3 +10,7 @@ class SlangResponse(BaseModel):
 class SlangUpdate(BaseModel):
     word: str
     translation: str
+
+class SlangCreate(BaseModel):
+    word: str
+    translation: str

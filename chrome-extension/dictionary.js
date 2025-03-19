@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const searchBtn = document.getElementById("searchBtn");
     const dictionaryTable = document.getElementById("dictionaryTable");
     const backBtn = document.getElementById("backBtn");
+    const addWordBtn = document.getElementById("addWordBtn");
     const prevPageBtn = document.getElementById("prevPage");
     const nextPageBtn = document.getElementById("nextPage");
     const pageInfo = document.getElementById("pageInfo");
@@ -101,6 +102,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     // ✅ "돌아가기" 버튼 클릭 시 팝업 페이지로 이동
     backBtn.addEventListener("click", function () {
         window.location.href = "popup.html";
+    });
+
+    // ✅ "신조어 추가" 버튼 클릭 시 추가 페이지로 이동
+    addWordBtn.addEventListener("click", function () {
+        window.location.href = "add_word.html";
     });
 
     // ✅ 페이지 로드 시 전체 신조어 목록 가져오기

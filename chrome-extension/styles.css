@@ -303,3 +303,9 @@ button:hover {
 .deleteBtn:hover {
     background: #c82333;
 }
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}

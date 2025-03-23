@@ -189,10 +189,11 @@ td {
 }
 
 /* 각 열의 너비 고정 */
-th:nth-child(1), td:nth-child(1) { width: 15%; } /* 초성 */
-th:nth-child(2), td:nth-child(2) { width: 30%; } /* 신조어 */
-th:nth-child(3), td:nth-child(3) { width: 45%; } /* 번역 */
-th:nth-child(4), td:nth-child(4) { width: 10%; } /* 수정 버튼 */
+th:nth-child(1), td:nth-child(1) { width: 10%; }  /* 초성 */
+th:nth-child(2), td:nth-child(2) { width: 25%; }  /* 신조어 */
+th:nth-child(3), td:nth-child(3) { width: 40%; }  /* 번역 */
+th:nth-child(4), td:nth-child(4) { width: 12.5%; } /* 수정 */
+th:nth-child(5), td:nth-child(5) { width: 12.5%; } /* 삭제 */
 
 td:hover {
     white-space: normal; /* 마우스를 올리면 전체 내용 표시 */
@@ -285,4 +286,20 @@ button:hover {
 
 .editBtn:hover {
     background: #0056b3;
+}
+
+.deleteBtn {
+    background: #dc3545; /* 빨간색 */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 50px;
+    white-space: nowrap;
+}
+
+.deleteBtn:hover {
+    background: #c82333;
 }

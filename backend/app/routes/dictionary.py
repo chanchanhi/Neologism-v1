@@ -37,3 +37,13 @@ def add_word(request: SlangCreate, db: Session = Depends(get_db)):
     db.commit()
 
     return {"message": "신조어가 성공적으로 추가되었습니다!"}
+
+# ✂️ 삭제 기능 추가
+@router.delete("/delete/{word}")
+def delete_slang(word: str, db: Session = Depends(get_db)):
+    slang = db.query(Slang).filter(Slang.word == word).first()
+    if not slang:
+        raise HTTPException(status_code=404, detail="해당 신조어를 찾을 수 없습니다.")
+    db.delete(slang)
+    db.commit()
+    return {"message": f"{word} 삭제 완료"}

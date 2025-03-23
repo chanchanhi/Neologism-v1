@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <td>${entry.word}</td>
                 <td>${entry.translation}</td>
                 <td><button class="editBtn" data-word="${entry.word}">수정</button></td>
+                <td><button class="deleteBtn" data-word="${entry.word}">삭제</button></td>
             `;
             dictionaryTable.appendChild(row);
         });
@@ -103,6 +104,24 @@ document.addEventListener("DOMContentLoaded", async function () {
                 fetchDictionary();
             }
         }
+
+        // ❌ 삭제 버튼 클릭
+        if (event.target.classList.contains("deleteBtn")) {
+            const word = event.target.dataset.word;  // ✅ 여기 추가해야 함
+            const confirmDelete = confirm(`"${word}"를 정말 삭제하시겠습니까?`);
+            if (confirmDelete) {
+                const res = await fetch(`http://localhost:8000/dictionary/delete/${word}`, {
+                    method: "DELETE"
+                });
+                if (res.ok) {
+                    alert("삭제되었습니다.");
+                    fetchDictionary();
+                } else {
+                    alert("삭제에 실패했습니다.");
+                }
+            }
+        }
+
     });
 
     // ✅ "돌아가기" 버튼 클릭 시 팝업 페이지로 이동

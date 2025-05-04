@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, Text
+from sqlalchemy import Column, String, Integer, Text, Boolean
 from app.database import Base
 
 class Slang(Base):
@@ -8,3 +8,4 @@ class Slang(Base):
     word = Column(String(50), unique=True, index=True, nullable=False)
     translation = Column(Text, nullable=False)
     initial = Column(String(10), nullable=False)  # 초성 저장
+    approved = Column(Boolean, default=False)

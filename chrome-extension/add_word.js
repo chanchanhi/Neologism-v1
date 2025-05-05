@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             if (response.ok) {
-                alert("신조어가 성공적으로 추가되었습니다!");
+                alert("신조어 추가요청이 등록되었습니다!");
                 window.location.href = "dictionary.html"; // 사전 페이지로 이동
             } else {
                 alert("신조어 추가에 실패했습니다.");

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 승인 페이지</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+    <div class="container">
+        <h2>🛠 승인 대기 신조어 목록</h2>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>신조어</th>
+                        <th>기존 번역</th>
+                        <th>요청된 번역</th>
+                        <th>요청 종류</th>  <!-- ✅ 추가됨 -->
+                        <th>조치</th> <!-- ✅ 승인 + 거부 통합 열 -->
+
+                    </tr>
+                </thead>
+                <tbody id="adminTable">
+                    <!-- JS에서 데이터 렌더링 -->
+                </tbody>
+            </table>
+        </div>
+
+        <button id="backBtn">돌아가기</button>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
+

@@ -9,16 +9,17 @@ router = APIRouter()
 
 @router.get("/search")
 def search_word(word: str, db: Session = Depends(get_db)):
-    slang = db.query(Slang).filter(Slang.word.contains(word)).all()
+    slang = db.query(Slang).filter(Slang.word.contains(word), Slang.approved == True, Slang.pending_delete == False).all()
     return [{"word": s.word, "translation": s.translation, "initial": get_korean_initial(s.word)} for s in slang]
 
 @router.post("/update")
 def update_word(request: SlangUpdate, db: Session = Depends(get_db)):
     slang = db.query(Slang).filter(Slang.word == request.word).first()
     if slang:
-        slang.translation = request.translation
+        slang.pending_translation = request.translation
+        slang.approved = False # 수정되었으므로 다시 승인 대기로 전환
         db.commit()
-        return {"message": "번역이 수정되었습니다"}
+        return {"message": "수정 요청이 저장되었습니다. 관리자의 승인을 기다려주세요."}
     return {"message": "신조어를 찾을 수 없습니다"}
 
 
@@ -31,12 +32,12 @@ def add_word(request: SlangCreate, db: Session = Depends(get_db)):
 
     # ✅ 초성 추출 후 저장
     initial = get_korean_initial(request.word)
-    new_slang = Slang(word=request.word, translation=request.translation, initial=initial)
+    new_slang = Slang(word=request.word, translation="", pending_translation=request.translation, approved = False, initial=initial)
     
     db.add(new_slang)
     db.commit()
 
-    return {"message": "신조어가 성공적으로 추가되었습니다!"}
+    return {"message": "신조어 추가 요청이 관리자에게 전달되었습니다!"}
 
 # ✂️ 삭제 기능 추가
 @router.delete("/delete/{word}")
@@ -44,6 +45,7 @@ def delete_slang(word: str, db: Session = Depends(get_db)):
     slang = db.query(Slang).filter(Slang.word == word).first()
     if not slang:
         raise HTTPException(status_code=404, detail="해당 신조어를 찾을 수 없습니다.")
-    db.delete(slang)
+    slang.pending_delete = True
+    slang.approved = False  # 삭제 중이면 사용자에게도 숨김
     db.commit()
-    return {"message": f"{word} 삭제 완료"}
+    return {"message": f"{word} 삭제 요청이 관리자에게 전달되었습니다."}

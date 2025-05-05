@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routes import translate, dictionary
+from app.routes import translate, dictionary, admin
 from app.database import engine, Base
 
 app = FastAPI(title="GPT 신조어 번역기 API")
@@ -10,6 +10,8 @@ Base.metadata.create_all(bind=engine)
 # 번역 및 사전 API 라우트 등록
 app.include_router(translate.router, prefix="/translate", tags=["Translate"])
 app.include_router(dictionary.router, prefix="/dictionary", tags=["Dictionary"])
+app.include_router(admin.router, prefix="/admin", tags=["Admin"])  # ✅ 관리자 라우터
+
 
 @app.get("/")
 def root():

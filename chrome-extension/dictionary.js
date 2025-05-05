@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ word: word, translation: newTranslation })
                 });
-                alert("번역이 업데이트되었습니다!");
+                alert("신조어 번역수정이 요청되었습니다!");
                 fetchDictionary();
             }
         }
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     method: "DELETE"
                 });
                 if (res.ok) {
-                    alert("삭제되었습니다.");
+                    alert("신조어 삭제요청이 되었습니다.");
                     fetchDictionary();
                 } else {
                     alert("삭제에 실패했습니다.");

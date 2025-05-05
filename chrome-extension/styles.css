@@ -309,3 +309,46 @@ button:hover {
     justify-content: space-between;
     margin-top: 15px;
 }
+
+.admin-page .container {
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 13px;
+  }
+  
+  .admin-page .table-container {
+    overflow-x: hidden;
+  }
+  
+  .admin-page table {
+    width: 100%;
+    table-layout: auto;      /* 열 자동 조절 */
+    border-collapse: collapse;
+  }
+  
+  .admin-page th,
+  .admin-page td {
+    font-size: 13px;
+    padding: 6px 10px;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 150px;  /* ✅ 더 넓게 */
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+  .admin-page button {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+  .admin-page td button {
+    margin: 2px;
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+  
+  
+  
+  
+  
+  

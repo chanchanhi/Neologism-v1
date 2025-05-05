@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const translateBtn = document.getElementById("translateBtn");
     const translatedText = document.getElementById("translatedText");
     const dictionaryBtn = document.getElementById("dictionaryBtn");
+    const adminBtn = document.getElementById("adminBtn");
 
     // 번역 버튼 클릭 시 애니메이션 효과 추가
     translateBtn.addEventListener("mousedown", function () {
@@ -55,6 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // 신조어 사전 버튼 클릭 시 페이지 이동
     dictionaryBtn.addEventListener("click", function () {
         window.location.href = "dictionary.html";
+    });
+
+    adminBtn.addEventListener("click", function () {
+        window.location.href = "admin.html";
     });
 });
 

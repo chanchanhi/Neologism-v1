@@ -11,3 +11,10 @@ class Slang(Base):
     pending_delete = Column(Boolean, default=False)  # ✅ 삭제 요청 여부
     initial = Column(String(10), nullable=False)  # 초성 저장
     approved = Column(Boolean, default=False) # 승인 여부 필드 추가
+
+class AdminUser(Base):
+    __tablename__ = "admin_users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String(50), unique=True, nullable=False)
+    password_hash = Column(String(255), nullable=False)

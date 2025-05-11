@@ -1,3 +1,5 @@
+from passlib.context import CryptContext
+
 def get_korean_initial(word: str) -> str:
     """한글 단어에서 초성만 추출하는 함수"""
     CHOSUNG_LIST = [
@@ -15,3 +17,12 @@ def get_korean_initial(word: str) -> str:
         return CHOSUNG_LIST[chosung_index]
     
     return word[0]  # 한글이 아니면 첫 글자 그대로 반환
+
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+def hash_password(password: str) -> str:
+    return pwd_context.hash(password)
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    return pwd_context.verify(plain_password, hashed_password)

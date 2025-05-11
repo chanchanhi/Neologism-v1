@@ -1,3 +1,9 @@
+// ✅ 관리자 로그인 토큰 확인 - 반드시 최상단에 위치
+if (!localStorage.getItem("adminToken")) {
+    alert("로그인이 필요합니다.");
+    window.location.href = "admin_login.html";
+  }
+
 document.addEventListener("DOMContentLoaded", async function () {
     const adminTable = document.getElementById("adminTable");
     const backBtn = document.getElementById("backBtn");
@@ -62,3 +68,5 @@ document.addEventListener("DOMContentLoaded", async function () {
     // ✅ 페이지 로딩 시 데이터 불러오기
     fetchPending();
 });
+
+  

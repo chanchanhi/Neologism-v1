@@ -7,6 +7,13 @@ if (!localStorage.getItem("adminToken")) {
 document.addEventListener("DOMContentLoaded", async function () {
     const adminTable = document.getElementById("adminTable");
     const backBtn = document.getElementById("backBtn");
+    const logoutBtn = document.getElementById("logoutBtn"); 
+
+    logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("adminToken");
+        alert("로그아웃되었습니다.");
+        window.location.href = "popup.html";  // 또는 "admin_login.html"
+      });
     // ✅ 승인 대기 신조어 가져오기
     async function fetchPending() {
         try {
